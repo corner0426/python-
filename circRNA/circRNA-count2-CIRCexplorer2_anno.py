@@ -42,7 +42,7 @@ circ_id_lst = []
 
 #with open(anno_file, 'w+') as f:
 f = open(anno_file, 'w+')
-f.write('circ_id\thost_gene\texonCount\texonSize\tcircType\n')
+f.write('circ_id\thost_gene\texonCount\texonSize\tisoformName\tcircType\n')
 for s in files:
 	filereader = open(s)
 	for line in filereader:
@@ -51,7 +51,7 @@ for s in files:
 		circ_id = v[0] + '_' + v[1] + '_' + v[2]
 		if circ_id in circ_id_lst: continue
 		circ_id_lst.append(circ_id)
-		f.write('%s\t%s\t%s\t%s\t%s\n' % (circ_id, v[14], v[11], v[12], v[15]))
+		f.write('%s\t%s\t%s\t%s\t%s\t%s\n' % (circ_id, v[14], v[11], v[12], v[15], v[13]))
 		#circ_dict.setdefault(circ_id, {})
 		#circ_dict[circ_id].setdefault(sample_id,int(v[12]))
 print ('You have %d circRNAs detected' % (len(circ_id_lst)))
